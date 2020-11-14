@@ -69,6 +69,7 @@ const TermsAndConditions = () => {
                 <a
                   href="https://www.termsfeed.com/terms-conditions-generator/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Terms and Conditions Generator
                 </a>
@@ -88,7 +89,7 @@ const TermsAndConditions = () => {
                 <strong>Website</strong> refers to My Site, accessible from{' '}
                 <a
                   href="http://mywebsite.com"
-                  rel="external nofollow noopener"
+                  rel="external nofollow noopener noreferrer"
                   target="_blank"
                 >
                   http://mywebsite.com

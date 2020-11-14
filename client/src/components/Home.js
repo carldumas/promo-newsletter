@@ -8,8 +8,14 @@ const Home = () => {
   return (
     <>
       <Wrapper>
-        <h1>Register to our Promotions Newsletter</h1>
-        <TextContainer>Text to come...</TextContainer>
+        <h1>Promotions Newsletter</h1>
+        <TextContainer>
+          <hr className="horizontale-rule" />
+          <p style={{ paddingTop: '20px' }}>
+            Select a promotion newsletter from the list to receive best deal.
+          </p>
+          <p>List to come...</p>
+        </TextContainer>
       </Wrapper>
     </>
   );

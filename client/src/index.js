@@ -1,11 +1,19 @@
+// Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// Components
 import App from './components/App';
+import { CurrentUserProvider } from './components/CurrentUserContext';
+//Styles
+import './index.css';
+
+const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CurrentUserProvider>
+      <App />
+    </CurrentUserProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  rootElement
 );

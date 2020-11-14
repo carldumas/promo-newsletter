@@ -3,20 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 // Styles
 import { Wrapper } from './Styles';
-// Configs
-import app from '../firebase.js';
 
-const AdminDashboard = () => {
+const RegistrationForm = () => {
   return (
     <>
       <Wrapper>
-        <h1>Admin Content</h1>
+        <h1>Register to our Newsletter</h1>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>
-            Restricted content{' '}
-            <button onClick={() => app.auth().signOut()}>LogOut</button>
-          </p>
+          <p style={{ paddingTop: '20px' }}>Some content...</p>
         </TextContainer>
       </Wrapper>
     </>
@@ -28,4 +23,4 @@ const TextContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export default AdminDashboard;
+export default RegistrationForm;

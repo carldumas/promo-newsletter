@@ -21,10 +21,10 @@ const Header = () => {
               <ul className="sub-menu">
                 <div>
                   <NavElement>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/register">Registration Form</NavLink>
                   </NavElement>
                   <NavElement>
-                    <NavLink to="/admin">Admin</NavLink>
+                    <NavLink to="/admin">Admin Dashboard</NavLink>
                   </NavElement>
                 </div>
               </ul>

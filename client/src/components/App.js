@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import Home from './Home';
+import RegistrationForm from './RegistrationForm';
 import AdminDashboard from './AdminDashboard';
 import ContactUs from './ContactUs';
 import Header from './Header';
@@ -12,6 +13,8 @@ import NotFound from './NotFound';
 import TermsAndConditions from './TermsAndConditions';
 import PrivacyPolicy from './PrivacyPolicy';
 import GlobalStyles from './GlobalStyles';
+import PrivateRoute from './PrivateRoute';
+import AdminSignIn from './AdminSignIn';
 
 const App = () => {
   return (
@@ -24,9 +27,11 @@ const App = () => {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path="/admin">
-                <AdminDashboard />
+              <Route exact path="/register">
+                <RegistrationForm />
               </Route>
+              <PrivateRoute exact path="/admin" component={AdminDashboard} />
+              <Route exact path="/signin" component={AdminSignIn} />
               <Route exact path="/terms-and-conditions">
                 <TermsAndConditions />
               </Route>

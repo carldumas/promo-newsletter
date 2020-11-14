@@ -145,4 +145,15 @@ export default createGlobalStyle`
   .menu > li:last-child .sub-menu {
     right: -24px;
   }
+
+  /* Loader */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 `;
