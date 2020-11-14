@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Styles
 import { Wrapper } from './Styles';
 // Configs
-import app from '../firebase.js';
+import { auth } from '../firebase.js';
 
 const AdminDashboard = () => {
   return (
@@ -15,7 +15,7 @@ const AdminDashboard = () => {
           <hr className="horizontale-rule" />
           <p style={{ paddingTop: '20px' }}>
             Restricted content{' '}
-            <button onClick={() => app.auth().signOut()}>LogOut</button>
+            <button onClick={() => auth.signOut()}>LogOut</button>
           </p>
         </TextContainer>
       </Wrapper>

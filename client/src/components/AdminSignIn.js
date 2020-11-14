@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // Contexts
 import { CurrentUserContext } from './CurrentUserContext.js';
 // Components
-import app from '../firebase.js';
+import { auth } from '../firebase.js';
 // Styles
 import { Wrapper } from './Styles';
 import './AdminSignIn.css';
@@ -16,9 +16,7 @@ const AdminSignIn = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
+        await auth.signInWithEmailAndPassword(email.value, password.value);
         history.push('/admin');
       } catch (error) {
         alert(error);
@@ -36,7 +34,6 @@ const AdminSignIn = ({ history }) => {
       <TextContainer>
         <hr className="horizontale-rule" />
         <p style={{ paddingTop: '20px' }}>Add your credentials:</p>
-        <div />
         <div>
           <form className="form-inline" onSubmit={handleLogin} noValidate>
             <label>Email:</label>
