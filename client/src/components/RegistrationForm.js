@@ -118,12 +118,6 @@ const Row = styled.div`
   padding-top: 16px;
 `;
 
-const Error = styled.div`
-  color: red;
-  padding: 16px 0;
-  text-align: center;
-`;
-
 const SubscribeButton = styled.button`
   width: 200px;
   background-color: rgba(1, 1, 1, 0.04);

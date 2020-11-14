@@ -28,6 +28,28 @@ const AdminDashboard = () => {
     firestore.collection('users').doc(id).delete();
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch('/send-mail', {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+      redirect: 'follow',
+      referrer: 'no-referrer',
+      body: JSON.stringify({ users }),
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log('Something went wrong..', error);
+      });
+  };
+
   return (
     <Wrapper>
       <div>
@@ -60,7 +82,7 @@ const AdminDashboard = () => {
             </EmailItems>
             <div>
               <br />
-              <button>Send Promo Email</button>
+              <button onClick={handleSubmit}>Send Promo Email</button>
             </div>
           </EmailWrapper>
         </TextContainer>
