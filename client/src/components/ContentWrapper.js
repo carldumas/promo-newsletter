@@ -1,7 +1,7 @@
 // Libraries
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 90em;

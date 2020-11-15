@@ -2,8 +2,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, Redirect } from 'react-router-dom';
-// Styles
-import { Wrapper } from './Styles';
+// Components
+import { ContentWrapper } from './ContentWrapper';
 
 const NotFound = () => {
   const currentHrefLocation = window.location.href;
@@ -14,17 +14,17 @@ const NotFound = () => {
 
   return (
     <>
-      <Wrapper style={{ height: '20em' }}>
+      <ContentWrapper style={{ minHeight: '20em' }}>
         <h1>404 - Page not Found!</h1>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>
+          <p style={{ padding: '20px 0 14px' }}>
             We're sorry but we can't find the page you're looking for. Please
             check the URL or go back to the{' '}
             <CustomLink to="/">home page</CustomLink>.
           </p>
         </TextContainer>
-      </Wrapper>
+      </ContentWrapper>
     </>
   );
 };

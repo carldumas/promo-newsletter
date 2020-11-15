@@ -1,22 +1,22 @@
 // Libraries
 import React from 'react';
 import styled from 'styled-components';
-// Styles
-import { Wrapper } from './Styles';
+// Components
+import { ContentWrapper } from './ContentWrapper';
 
 const Home = () => {
   return (
     <>
-      <Wrapper>
+      <ContentWrapper>
         <h1>Promotions Newsletter</h1>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>
-            Select a promotion newsletter from the list to receive best deal.
-          </p>
+          <h3 style={{ padding: '20px 0 20px' }}>
+            Select a promotion from the list to receive newsletter.
+          </h3>
           <p>List to come...</p>
         </TextContainer>
-      </Wrapper>
+      </ContentWrapper>
     </>
   );
 };

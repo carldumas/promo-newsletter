@@ -13,7 +13,6 @@ export default createGlobalStyle`
     max-width: 100vw;
   }
 
-
   /* http://meyerweb.com/eric/tools/css/reset/
     v2.0 | 20110126
     License: none (public domain)
@@ -153,6 +152,83 @@ export default createGlobalStyle`
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  .horizontale-rule {
+    border: 0;
+    border-bottom: 1px solid #dadada;
+  }
+
+  /* Style for the forms */
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  .form-inline label {
+    margin: 5px 10px 5px 0;
+  }
+
+  .form-inline input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+  .form-inline button {
+    padding: 10px 20px;
+    background-color: #575555;
+    border: 1px solid #ddd;
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .form-inline button:hover {
+    background: #383838;
+  }
+
+  /* Breakpoints */
+  @media (max-width: 840px) {
+    .form-inline input {
+      margin: 10px 0;
+    }
+
+    .form-inline {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  @media (min-width: 841px) {
+    .form-inline input :not(.form-checkbox) {
+      width: 240px;
+    }
+
+    .form-inline button {
+      width: 140px;
+    }
+
+    .form-inline {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media ( min-width: 601px ) {
+    span.sm-header-title {
+      display: none
+    }
+  }
+
+  @media ( max-width: 600px ) {
+    span.md-header-title {
+      display: none
     }
   }
 

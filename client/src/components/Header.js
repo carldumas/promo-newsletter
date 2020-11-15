@@ -8,7 +8,8 @@ const Header = () => {
     <Wrapper>
       <Logo to="/">
         <Title>
-          <span>Promotion Mailing List</span>
+          <span className="sm-header-title">Promotions</span>
+          <span className="md-header-title">Promotions Mailing List</span>
         </Title>
       </Logo>
       <div>

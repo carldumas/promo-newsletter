@@ -2,13 +2,12 @@
 import React, { useCallback, useContext } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
-// Contexts
-import { CurrentUserContext } from './CurrentUserContext.js';
 // Components
-import { auth } from '../firebase.js';
-// Styles
-import { Wrapper } from './Styles';
-import './AdminSignIn.css';
+import { ContentWrapper } from './ContentWrapper';
+// Contexts
+import { CurrentUserContext } from './CurrentUserContext';
+// Configs
+import { auth } from '../firebase';
 
 const AdminSignIn = ({ history }) => {
   const handleLogin = useCallback(
@@ -29,20 +28,20 @@ const AdminSignIn = ({ history }) => {
     return <Redirect to="/admin" />;
   }
   return (
-    <Wrapper>
+    <ContentWrapper>
       <h1>Admin Sign In</h1>
       <TextContainer>
         <hr className="horizontale-rule" />
-        <p style={{ paddingTop: '20px' }}>Add your credentials:</p>
+        <h3 style={{ padding: '20px 0 20px' }}>Add your credentials:</h3>
         <div>
-          <form className="form-inline" onSubmit={handleLogin} noValidate>
+          <form className="form-inline" onSubmit={handleLogin}>
             <label>Email:</label>
             <input
               placeholder="Enter email"
               variant="outlined"
               type="email"
               id="email"
-              label="Email Address"
+              label="email address"
               name="email"
               autoComplete="email"
               autoFocus
@@ -65,7 +64,7 @@ const AdminSignIn = ({ history }) => {
           </form>
         </div>
       </TextContainer>
-    </Wrapper>
+    </ContentWrapper>
   );
 };
 

@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 // Components
-import Spacer from './Spacer';
-// Styles
-import { Wrapper } from './Styles';
+import { ContentWrapper } from './ContentWrapper';
+// Configs
 import { firestore } from '../firebase';
 
 const RegistrationForm = () => {
@@ -28,55 +27,53 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Wrapper aria-label="Mailing list">
+    <ContentWrapper aria-label="Mailing list">
       <h1>Subscribe</h1>
       <TextContainer>
         <hr className="horizontale-rule" />
-        <p style={{ paddingTop: '20px' }}>
-          You're subscribing to a promotion mailing list.
-        </p>
-
-        <Form onSubmit={handleSubmit}>
-          <h3 style={{ color: 'black' }}>Enter user information</h3>
-          <Row>
-            <TextInput
+        <h3 style={{ padding: '20px 0 20px' }}>
+          Enter your full name and email address to register to our promotions
+          newsletter.
+        </h3>
+        <div>
+          <form className="form-inline" onSubmit={handleSubmit}>
+            <label>Full name:</label>
+            <input
               placeholder="Fulll name"
+              variant="outlined"
               label="Full name"
               type="text"
               id="fullname"
               name="fullname"
               value={user.fullname}
               onChange={handleChange}
-              className="validate"
-              style={{ flex: 1 }}
               autoFocus
               required
             />
-
-            <Spacer size={16} />
-            <TextInput
-              placeholder="Email"
-              label="Email"
+            <label>Email:</label>
+            <input
+              placeholder="Enter email"
+              variant="outlined"
               type="email"
               id="email"
+              label="email address"
               name="email"
               value={user.email}
               onChange={handleChange}
-              className="validate"
-              style={{ flex: 1 }}
+              autoComplete="email"
               required
             />
-          </Row>
-          <Row>
-            <input
-              type="checkbox"
-              name="checkbox"
-              value="check"
-              id="agree"
-              required
-            />{' '}
-            <span style={{ color: 'black' }}>
-              &nbsp; I have read and agree to the{' '}
+            <label>
+              <input
+                className="form-checkbox"
+                style={{ padding: '420px !important', margin: '0' }}
+                type="checkbox"
+                name="agreement"
+                value="check"
+                id="agree"
+                required
+              />{' '}
+              I have read and agree to the{' '}
               <CustomLink to="/terms-and-conditions" target="_blank">
                 Terms and Conditions
               </CustomLink>{' '}
@@ -84,60 +81,20 @@ const RegistrationForm = () => {
               <CustomLink to="/privacy-policy" target="_blank">
                 Privacy Policy
               </CustomLink>
-              .
-            </span>
-          </Row>
-          <Row>
-            <SubscribeButton type="submit">Subscribe</SubscribeButton>
-          </Row>
-        </Form>
+            </label>
+            <button type="submit" variant="contained">
+              Subscribe
+            </button>
+          </form>
+        </div>
       </TextContainer>
-    </Wrapper>
+    </ContentWrapper>
   );
 };
 
 const TextContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
-`;
-
-const TextInput = styled.input`
-  width: 200px;
-  height: 40px;
-`;
-
-const Form = styled.form`
-  margin-left: auto;
-  margin-right: auto;
-  padding: 24px 32px 32px;
-  background: #f0f0f0;
-`;
-
-const Row = styled.div`
-  display: flex;
-  padding-top: 16px;
-`;
-
-const SubscribeButton = styled.button`
-  width: 200px;
-  background-color: rgba(1, 1, 1, 0.04);
-  color: rgba(0, 0, 0, 0.87);
-  padding: 6px 16px;
-  font-size: 0.875rem;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  line-height: 1.75;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  margin: auto;
-  width: 50%;
-
-  &:hover {
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 `;
 
 const CustomLink = styled(Link)`

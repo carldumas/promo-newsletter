@@ -1,23 +1,27 @@
 // Libraries
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-// Styles
-import { Wrapper } from './Styles';
+// Components
+import { ContentWrapper } from './ContentWrapper';
 
 const Contactus = () => {
   return (
     <>
-      <Wrapper style={{ height: '20em' }}>
-        <h1>Contact Us</h1>
+      <ContentWrapper style={{ minHeight: '20em' }}>
+        <h1>Contact us</h1>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>
-            Some fake address to be added... &nbsp;
-            <CustomLink to="/">home page</CustomLink>.
+          <h3 style={{ padding: '20px 0 20px' }}>Contact our team</h3>
+          <p style={{ lineHeight: '1.6' }}>
+            <b>Carlito Dimitry</b>
+            <br />
+            6817 43 Av. <br />
+            Montreal, QC. <br />
+            H1T 2R9 <br />
+            Tel.: (514) 376-8344
           </p>
         </TextContainer>
-      </Wrapper>
+      </ContentWrapper>
     </>
   );
 };
@@ -25,15 +29,6 @@ const Contactus = () => {
 const TextContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
-`;
-
-const CustomLink = styled(Link)`
-  text-decoration: none;
-  border-bottom: dashed 1px;
-  color: black;
-  &:hover {
-    border-bottom: solid 1px;
-  }
 `;
 
 export default Contactus;

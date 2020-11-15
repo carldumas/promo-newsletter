@@ -1,17 +1,19 @@
 // Libraries
 import React from 'react';
 import styled from 'styled-components';
-// Styles
-import { Wrapper } from './Styles';
+// Components
+import { ContentWrapper } from './ContentWrapper';
 
 const TermsAndConditions = () => {
   return (
     <>
-      <Wrapper>
+      <ContentWrapper>
         <h1>Terms and Conditions</h1>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>Last updated: October 27, 2020</p>
+          <p style={{ padding: '20px 0 14px' }}>
+            Last updated: October 27, 2020
+          </p>
           <p>
             Please read these terms and conditions carefully before using Our
             Service.
@@ -306,7 +308,7 @@ const TermsAndConditions = () => {
             <li>By email: office@gmail.com</li>
           </ul>
         </TextContainer>
-      </Wrapper>
+      </ContentWrapper>
     </>
   );
 };

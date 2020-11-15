@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { BsTrash } from 'react-icons/bs';
-// Styles
-import { Wrapper } from './Styles';
+// Components
+import { ContentWrapper } from './ContentWrapper';
 // Configs
-import { auth } from '../firebase.js';
-import { firestore } from '../firebase';
+import { auth, firestore } from '../firebase';
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -51,14 +50,19 @@ const AdminDashboard = () => {
   };
 
   return (
-    <Wrapper>
+    <ContentWrapper>
       <div>
-        <h1>Email List</h1>
+        <div>
+          <h1 style={{ display: 'inline' }}>Email List</h1>
+          <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
+            Sign out
+          </Button>
+        </div>
         <TextContainer>
           <hr className="horizontale-rule" />
-          <p style={{ paddingTop: '20px' }}>
+          <h3 style={{ padding: '20px 0 20px' }}>
             You're about to send promotions newsletter to the following list:
-          </p>
+          </h3>
           <EmailWrapper>
             <EmailItems>
               {users.map((user) => (
@@ -72,7 +76,14 @@ const AdminDashboard = () => {
                           style={{
                             cursor: 'pointer',
                           }}
-                          onClick={() => deleteUser(user.id)}
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                'Are you sure you wish to delete this item?'
+                              )
+                            )
+                              deleteUser(user.id);
+                          }}
                         />
                       </div>
                     </div>
@@ -82,13 +93,12 @@ const AdminDashboard = () => {
             </EmailItems>
             <div>
               <br />
-              <button onClick={handleSubmit}>Send Promo Email</button>
+              <Button onClick={handleSubmit}>Send promotion</Button>
             </div>
           </EmailWrapper>
         </TextContainer>
-        <button onClick={() => auth.signOut()}>Admin Logout</button>
       </div>
-    </Wrapper>
+    </ContentWrapper>
   );
 };
 
@@ -113,6 +123,20 @@ const Item = styled.li`
   padding: 10px;
   background: #d3d3d3;
   margin: 5px;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  background-color: #575555;
+  border: 1px solid #ddd;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background: #383838;
+  }
 `;
 
 export default AdminDashboard;
