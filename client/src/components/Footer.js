@@ -10,7 +10,7 @@ const Footer = () => {
           <Anchor href="/privacy-policy">Privacy Policy</Anchor>&nbsp;|&nbsp;
           <Anchor href="/terms-and-conditions">Terms & Conditions</Anchor>
           &nbsp;|&nbsp;
-          <Anchor href="/contact-us">Contact Us</Anchor>
+          <Anchor href="/contact-us">Contact us</Anchor>
           &nbsp;|&nbsp;© 2020 Concordia Bootcamp
         </Paragragh>
       </FooterContainer>

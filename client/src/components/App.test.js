@@ -9,10 +9,10 @@ test('renders learn react link', () => {
   const navLink = screen.getByText(/Menu/i);
   const subNavLinkHome = screen.getByText(/Registration Form/i);
   const subNavLinkAdmin = screen.getByText(/Admin Dashboard/i);
-  const textElement = screen.getByText(/Promotions Newsletter/);
+  const textElement = screen.getByText(/Promo Newsletter/);
   const linkPrivacyPolicy = screen.getByText(/Privacy Policy/i);
   const linkTermAndConditions = screen.getByText(/Terms & Conditions/i);
-  const linkContactUs = screen.getByText(/Contact Us/i);
+  const linkContactUs = screen.getByText(/Contact us/i);
 
   expect(navLink).toBeInTheDocument();
   expect(textElement).toBeInTheDocument();
