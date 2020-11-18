@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: 'promo-newsletter',
   storageBucket: 'promo-newsletter.appspot.com',
   messagingSenderId: '340941350852',
-  appId: '1:340941350852:web:dca9038e9c223c78186691',
+  appId: '1:340941350852:web:4c3cddc27e54c5bd186691',
 };
 
 firebase.initializeApp(firebaseConfig);

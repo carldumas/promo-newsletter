@@ -4,24 +4,19 @@ require('dotenv').config();
 
 const router = require('express').Router();
 
-// Testing
-router.get('/api/test', (req, res) => {
-  res.send({ express: 'Testing server...' });
-});
-
 // Mail Service using nodemailer and googleapis
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
 const OAuth2 = google.auth.OAuth2;
 
 const oauth2Client = new OAuth2(
-  process.env.CLIENTID,
-  process.env.CLIENTSECRET,
+  process.env.MAILING_SERVICE_CLIENT_ID,
+  process.env.MAILING_SERVICE_CLIENT_SECRET,
   process.env.URL
 );
 
 oauth2Client.setCredentials({
-  refresh_token: process.env.REFRESHTOKEN,
+  refresh_token: process.env.MAILING_SERVICE_REFRESH_TOKEN,
 });
 const accessToken = oauth2Client.getAccessToken();
 
@@ -29,10 +24,10 @@ const smtpTransport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
-    user: process.env.DEFAULTUSEREMAIL,
-    clientId: process.env.CLIENTID,
-    clientSecret: process.env.CLIENTSECRET,
-    refreshToken: process.env.REFRESHTOKEN,
+    user: process.env.SENDER_EMAIL_ADDRESS,
+    clientId: process.env.MAILING_SERVICE_CLIENT_ID,
+    clientSecret: process.env.MAILING_SERVICE_CLIENT_SECRET,
+    refreshToken: process.env.MAILING_SERVICE_REFRESH_TOKEN,
     accessToken: accessToken,
   },
   tls: {
@@ -45,7 +40,7 @@ router.post('/send-mail', (req, res) => {
   const newUsersArr = usersArr.map((user) => user.email);
 
   const mailOptions = {
-    from: process.env.DEFAULTUSEREMAIL,
+    from: process.env.SENDER_EMAIL_ADDRESS,
     bcc: newUsersArr,
     subject: 'Daily Promotion 2',
     generateTextFromHTML: true,

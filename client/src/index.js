@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import reportWebVitals from './components/reportWebVitals';
 import { CurrentUserProvider } from './components/CurrentUserContext';
-//Styles
-import './index.css';
 
 const rootElement = document.getElementById('root');
 
