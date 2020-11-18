@@ -20,6 +20,7 @@ const RegistrationForm = () => {
       email: '',
       fullname: '',
     });
+    alert('You have successfully subscribed!');
   };
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ const RegistrationForm = () => {
 
   return (
     <ContentWrapper aria-label="Mailing list">
-      <h1>Subscribe</h1>
+      <h1>Subscribe to our promotions newsletter</h1>
       <TextContainer>
         <hr className="horizontale-rule" />
         <h3 style={{ padding: '20px 0 20px' }}>

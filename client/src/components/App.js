@@ -1,5 +1,5 @@
 // Libraries
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
@@ -15,9 +15,23 @@ import PrivacyPolicy from './PrivacyPolicy';
 import GlobalStyles from './GlobalStyles';
 import PrivateRoute from './PrivateRoute';
 import AdminSignIn from './AdminSignIn';
+import Loader from './Loader';
+import { CurrentUserContext } from './CurrentUserContext';
 
 const App = () => {
-  return (
+  const { status } = useContext(CurrentUserContext);
+  return !status ? (
+    <Router>
+      <Wrapper>
+        <Header />
+        <Main>
+          <Loader />
+        </Main>
+        <Footer />
+      </Wrapper>
+      <GlobalStyles />
+    </Router>
+  ) : (
     <>
       <Router>
         <Wrapper>

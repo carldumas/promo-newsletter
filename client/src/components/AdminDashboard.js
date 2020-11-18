@@ -49,78 +49,74 @@ const AdminDashboard = () => {
       });
   };
 
-  if (users.length === 0) {
-    return (
-      <ContentWrapper>
+  return !users.length === 0 ? (
+    <ContentWrapper>
+      <div>
         <div>
-          <div>
-            <h1 style={{ display: 'inline' }}>Email List</h1>
-            <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
-              Sign out
-            </Button>
-          </div>
-          <TextContainer>
-            <hr className="horizontale-rule" />
-            <h3 style={{ padding: '20px 0 20px' }}>
-              There are currently no item in your list!
-            </h3>
-          </TextContainer>
+          <h1 style={{ display: 'inline' }}>Email List</h1>
+          <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
+            Sign out
+          </Button>
         </div>
-      </ContentWrapper>
-    );
-  } else {
-    return (
-      <ContentWrapper>
+        <TextContainer>
+          <hr className="horizontale-rule" />
+          <h3 style={{ padding: '20px 0 20px' }}>
+            There are currently no item in your list!
+          </h3>
+        </TextContainer>
+      </div>
+    </ContentWrapper>
+  ) : (
+    <ContentWrapper>
+      <div>
         <div>
-          <div>
-            <h1 style={{ display: 'inline' }}>Email List</h1>
-            <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
-              Sign out
-            </Button>
-          </div>
-          <TextContainer>
-            <hr className="horizontale-rule" />
-            <h3 style={{ padding: '20px 0 20px' }}>
-              You're about to send a promotion newsletter to the following list:
-            </h3>
-            <EmailWrapper>
-              <EmailItems>
-                {users.map((user) => (
-                  <Item key={user.id}>
+          <h1 style={{ display: 'inline' }}>Email List</h1>
+          <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
+            Sign out
+          </Button>
+        </div>
+        <TextContainer>
+          <hr className="horizontale-rule" />
+          <h3 style={{ padding: '20px 0 20px' }}>
+            You're about to send a promotion newsletter to the following list:
+          </h3>
+          <EmailWrapper>
+            <EmailItems>
+              {users.map((user) => (
+                <Item key={user.id}>
+                  <div>
                     <div>
+                      <div>{user.fullname}</div>
+                      <div>{user.email}</div>
                       <div>
-                        <div>{user.fullname}</div>
-                        <div>{user.email}</div>
-                        <div>
-                          <BsTrash
-                            style={{
-                              cursor: 'pointer',
-                            }}
-                            onClick={() => {
-                              if (
-                                window.confirm(
-                                  'Are you sure you wish to delete this item?'
-                                )
+                        <BsTrash
+                          style={{
+                            cursor: 'pointer',
+                          }}
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                'Are you sure you wish to delete this item?'
                               )
-                                deleteUser(user.id);
-                            }}
-                          />
-                        </div>
+                            )
+                              deleteUser(user.id);
+                          }}
+                        />
                       </div>
                     </div>
-                  </Item>
-                ))}
-              </EmailItems>
-              <div>
-                <br />
-                <Button onClick={handleSubmit}>Send promotion</Button>
-              </div>
-            </EmailWrapper>
-          </TextContainer>
-        </div>
-      </ContentWrapper>
-    );
-  }
+                  </div>
+                </Item>
+              ))}
+            </EmailItems>
+            <div>
+              <br />
+              <Button onClick={handleSubmit}>Send promotion</Button>
+            </div>
+          </EmailWrapper>
+        </TextContainer>
+      </div>
+    </ContentWrapper>
+  );
 };
 
 const TextContainer = styled.div`

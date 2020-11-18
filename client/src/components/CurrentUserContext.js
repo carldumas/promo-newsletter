@@ -14,9 +14,7 @@ export const CurrentUserProvider = ({ children }) => {
       setStatus(true);
     });
   }, []);
-  if (!status) {
-    return <>Loading...</>;
-  }
+
   return (
     <CurrentUserContext.Provider value={{ currentUser, status }}>
       {children}
