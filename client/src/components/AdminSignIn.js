@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 // Components
 import { ContentWrapper } from './ContentWrapper';
+import Button from './Button';
 // Contexts
 import { CurrentUserContext } from './CurrentUserContext';
 // Configs
@@ -58,9 +59,13 @@ const AdminSignIn = ({ history }) => {
               autoComplete="current-password"
               required
             />
-            <button type="submit" variant="contained">
+            <Button
+              style={{ padding: '10px 20px' }}
+              type="submit"
+              variant="contained"
+            >
               Sign In
-            </button>
+            </Button>
           </form>
         </div>
       </TextContainer>

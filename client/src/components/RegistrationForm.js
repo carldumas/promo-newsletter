@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 // Components
 import { ContentWrapper } from './ContentWrapper';
+import Button from './Button';
 // Configs
 import { firestore } from '../firebase';
 
@@ -83,9 +84,13 @@ const RegistrationForm = () => {
                 Privacy Policy
               </CustomLink>
             </label>
-            <button type="submit" variant="contained">
+            <Button
+              style={{ padding: '10px 20px' }}
+              type="submit"
+              variant="contained"
+            >
               Subscribe
-            </button>
+            </Button>
           </form>
         </div>
       </TextContainer>

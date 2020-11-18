@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BsTrash } from 'react-icons/bs';
 // Components
 import { ContentWrapper } from './ContentWrapper';
+import Button from './Button';
 // Configs
 import { auth, firestore } from '../firebase';
 
@@ -54,7 +55,10 @@ const AdminDashboard = () => {
       <div>
         <div>
           <h1 style={{ display: 'inline' }}>Email List</h1>
-          <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
+          <Button
+            style={{ float: 'right', padding: '10px 20px' }}
+            onClick={() => auth.signOut()}
+          >
             Sign out
           </Button>
         </div>
@@ -71,7 +75,10 @@ const AdminDashboard = () => {
       <div>
         <div>
           <h1 style={{ display: 'inline' }}>Email List</h1>
-          <Button style={{ float: 'right' }} onClick={() => auth.signOut()}>
+          <Button
+            style={{ float: 'right', padding: '10px 20px' }}
+            onClick={() => auth.signOut()}
+          >
             Sign out
           </Button>
         </div>
@@ -110,7 +117,9 @@ const AdminDashboard = () => {
             </EmailItems>
             <div>
               <br />
-              <Button onClick={handleSubmit}>Send promotion</Button>
+              <Button style={{ padding: '10px 20px' }} onClick={handleSubmit}>
+                Send promotion
+              </Button>
             </div>
           </EmailWrapper>
         </TextContainer>
@@ -140,20 +149,6 @@ const Item = styled.li`
   padding: 10px;
   background: #d3d3d3;
   margin: 5px;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  background-color: #575555;
-  border: 1px solid #ddd;
-  color: white;
-  outline: none;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  &:hover {
-    background: #383838;
-  }
 `;
 
 export default AdminDashboard;

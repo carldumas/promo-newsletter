@@ -179,20 +179,6 @@ export default createGlobalStyle`
     border: 1px solid #ddd;
   }
 
-  .form-inline button {
-    padding: 10px 20px;
-    background-color: #575555;
-    border: 1px solid #ddd;
-    color: white;
-    outline: none;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .form-inline button:hover {
-    background: #383838;
-  }
-
   /* Breakpoints */
   @media (max-width: 840px) {
     .form-inline input {
