@@ -13,11 +13,4 @@ app.get('/timestamp-cached', (request, response) => {
   response.send(`${Date.now()}`);
 });
 
-app.get('/api', (req, res) => {
-  res.send('Hello from the API');
-});
-app.get('/admin', (req, res) => {
-  res.send('Hello from the ADMIN');
-});
-
 exports.app = functions.https.onRequest(app);

@@ -49,10 +49,10 @@ const AdminDashboard = () => {
         body: JSON.stringify({ users }),
       })
         .then((res) => res.json())
+        .then(alert('Promotions email sent!'))
         .catch((error) => {
           console.log('Something went wrong..', error);
         });
-    alert('Promotions email sent!');
   };
 
   return !users.length === 0 ? (

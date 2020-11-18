@@ -44,7 +44,7 @@ router.post('/send-promo', (req, res) => {
     bcc: userEmail,
     subject: 'Daily Promotion',
     generateTextFromHTML: true,
-    html: `<h1>Hi awesome user</h1><b>Here are today's promotions...</b>`,
+    html: `<h1>Hi,</h1><b>Here are today's promotions...</b>`,
     // TODO: need to be able to import email template with data,
   };
 

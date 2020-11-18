@@ -74,6 +74,7 @@ const NavigationList = styled.ul`
   align-items: center;
   list-style: none;
   text-decoration: none;
+  outline: none;
 `;
 
 const NavElement = styled.li`

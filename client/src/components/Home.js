@@ -16,7 +16,7 @@ const Home = () => {
         <TextContainer>
           <hr className="horizontale-rule" />
           <h3 style={{ padding: '20px 0 20px' }}>
-            Select a promotion from the list to receive newsletter.
+            Select a promotion from the list to receive related newsletter.
           </h3>
           <PromoSection>
             <PromoBox>
@@ -78,7 +78,6 @@ const PromoSection = styled.section`
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  padding: 30px;
 `;
 
 const PromoBox = styled.div`
