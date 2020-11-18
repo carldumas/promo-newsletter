@@ -96,27 +96,29 @@ const AdminDashboard = () => {
             <EmailItems>
               {users.map((user) => (
                 <Item key={user.id}>
-                  <div>
-                    <div>
+                  <ItemContentWrapper>
+                    <ItemUsertWrapper>
                       <div>{user.fullname}</div>
                       <div>{user.email}</div>
-                      <div>
-                        <BsTrash
-                          style={{
-                            cursor: 'pointer',
-                          }}
-                          onClick={() => {
-                            if (
-                              window.confirm(
-                                'Are you sure you wish to delete this item?'
-                              )
+                    </ItemUsertWrapper>
+                    <ItemIconWrapper>
+                      <BsTrash
+                        style={{
+                          cursor: 'pointer',
+                          width: '20px',
+                          height: '20px',
+                        }}
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              'Are you sure you wish to delete this item?'
                             )
-                              deleteUser(user.id);
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                          )
+                            deleteUser(user.id);
+                        }}
+                      />
+                    </ItemIconWrapper>
+                  </ItemContentWrapper>
                 </Item>
               ))}
             </EmailItems>
@@ -154,6 +156,24 @@ const Item = styled.li`
   padding: 10px;
   background: #d3d3d3;
   margin: 5px;
+`;
+
+const ItemContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const ItemUsertWrapper = styled.div`
+  flex-basis: 100%;
+`;
+
+const ItemIconWrapper = styled.div`
+  margin: 0 5px;
+  height: 30px;
+  &:hover {
+    color: red;
+  }
 `;
 
 export default AdminDashboard;
