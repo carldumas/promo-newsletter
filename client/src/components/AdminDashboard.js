@@ -30,24 +30,29 @@ const AdminDashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    fetch('/send-mail', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      redirect: 'follow',
-      referrer: 'no-referrer',
-      body: JSON.stringify({ users }),
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.log('Something went wrong..', error);
-      });
+    if (
+      window.confirm(
+        'Are you sure you wish to send promotions email to the following list?'
+      )
+    )
+      fetch('/send-promo', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        body: JSON.stringify({ users }),
+      })
+        .then((res) => res.json())
+        .catch((error) => {
+          console.log('Something went wrong..', error);
+        });
+    alert('Promotions email sent!');
   };
 
   return !users.length === 0 ? (

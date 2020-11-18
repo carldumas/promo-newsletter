@@ -35,16 +35,16 @@ const smtpTransport = nodemailer.createTransport({
   },
 });
 
-router.post('/send-mail', (req, res) => {
+router.post('/send-promo', (req, res) => {
   const usersArr = req.body.users;
-  const newUsersArr = usersArr.map((user) => user.email);
+  const userEmail = usersArr.map((user) => user.email);
 
   const mailOptions = {
     from: process.env.SENDER_EMAIL_ADDRESS,
-    bcc: newUsersArr,
-    subject: 'Daily Promotion 2',
+    bcc: userEmail,
+    subject: 'Daily Promotion',
     generateTextFromHTML: true,
-    html: '<b>Here are the promotions for today...</b>',
+    html: `<h1>Hi awesome user</h1><b>Here are today's promotions...</b>`,
     // TODO: need to be able to import email template with data,
   };
 
